@@ -33,9 +33,7 @@
     "react-data-table-component-extensions": "^1.5.2",
     "react-date-picker": "^11.0.0",
     "react-dom": "^18.3.1",
-    "react-icons": "^5.5.0",
- 
-    "react-meta-tags": "github:anjali0703/react-meta-tags#react18-support",
+     "react-meta-tags": "^1.0.1",
     "react-perfect-scrollbar": "^1.5.8",
     "react-qr-code": "^2.0.15",
     "react-router-dom": "^6.26.1",
@@ -80,5 +78,9 @@
   },
   "devDependencies": {
     "@babel/plugin-proposal-private-property-in-object": "^7.21.11"
-  }
+  },
+  "peerDependencies": {
+  "react": "^16.6.0 || ^17.0.0 || ^18.0.0",
+  "react-dom": "^16.6.0 || ^17.0.0 || ^18.0.0"
+}
 }
