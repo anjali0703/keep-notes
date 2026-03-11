@@ -40,7 +40,14 @@ app.use("/uploads", express.static(path.join(__dirname, "uploads")));
 
 const ScriptDir = path.join(__dirname, "src", "scripts");
 app.use('/scripts', express.static(ScriptDir));
+const mongoURI =
+  process.env.MONGO_URI || "mongodb://localhost:27017/google_note";
 
+mongoose.connect(mongoURI, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+  maxPoolSize: 100,
+});
 // 3. DATABASE CONNECTION
 mongoose.connect("mongodb://localhost:27017/google_note", {
   useNewUrlParser: true,
