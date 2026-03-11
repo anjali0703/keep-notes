@@ -2486,3 +2486,30 @@ body {
     width: 150px; /* adjust as needed */
   }
 }
+
+
+
+@media (max-width: 768px) {
+
+  .keep-search-container {
+    flex: 1;
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  .keep-search-box {
+    width: 100%;
+  }
+
+}
+.mobile-search{
+  position: absolute;
+  top:10px;
+  left: 10px;
+  width: 60%;
+  height: 40px;
+  background: white;
+  display: flex;
+  align-items: center;
+  padding: 0 10px;
+}

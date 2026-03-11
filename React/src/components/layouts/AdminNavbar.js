@@ -28,6 +28,7 @@ const [showSettings, setShowSettings] = useState(false);
 const handleOpenSettings = () => setShowSettings(true);
 const handleCloseSettings = () => setShowSettings(false);
 const [isRefreshing, setIsRefreshing] = useState(false);
+const [showMobileSearch, setShowMobileSearch] = useState(false);
 
 const [refreshKey, setRefreshKey] = useState(0);
 
@@ -133,30 +134,69 @@ const [moveCheckedBottom, setMoveCheckedBottom] = useState(() => {
       </div>
 
       {/* SEARCH */}
-      <div className="keep-search-container">
+    {/* SEARCH */}
+<div className="keep-search-container">
 
-        <div className="keep-search-box">
+  {/* Desktop Search */}
+  {isDesktop && (
+    <div className="keep-search-box">
+      <button className="search-btn">
+        <MdSearch />
+      </button>
 
-          <button className="search-btn">
-            <MdSearch />
-          </button>
+      <input
+        type="text"
+        placeholder="Search"
+        value={searchTerm}
+        onChange={(e) => handleSearch(e.target.value)}
+      />
 
-          <input  
-            type="text"
-            placeholder="Search"
-            value={searchTerm}
-            onChange={(e) => handleSearch(e.target.value)}
-          />
+      {searchTerm && (
+        <button className="clear-btn" onClick={clearSearch}>
+          <MdClose />
+        </button>
+      )}
+    </div>
+  )}
 
-          {searchTerm && (
-            <button className="clear-btn" onClick={clearSearch}>
-              <MdClose />
-            </button>
-          )}
+  {/* Mobile Search Icon */}
+  {!isDesktop && !showMobileSearch && (
+    <button
+      className="keep-view-btn"
+      onClick={() => setShowMobileSearch(true)}
+    >
+      <MdSearch size={26} />
+    </button>
+  )}
 
-        </div>
+  {/* Mobile Search Bar */}
+  {!isDesktop && showMobileSearch && (
+    <div className="keep-search-box mobile-search">
+      <button className="search-btn">
+        <MdSearch />
+      </button>
 
-      </div>
+      <input
+        autoFocus
+        type="text"
+        placeholder="Search"
+        value={searchTerm}
+        onChange={(e) => handleSearch(e.target.value)}
+      />
+
+      <button
+        className="clear-btn"
+        onClick={() => {
+          clearSearch();
+          setShowMobileSearch(false);
+        }}
+      >
+        <MdClose />
+      </button>
+    </div>
+  )}
+
+</div>
 
   <div className="d-flex">
      <div className="d-flex align-items-center ms-nav-item">

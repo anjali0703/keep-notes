@@ -676,12 +676,10 @@ body::-webkit-scrollbar {
     .keep-logo-text {
         display: none; /* Hide 'Keep' text to save space */
     }
-
-   
-
     .note-card {
         width: 100%; /* Full width cards */
     }
+    
 }
 
 /* --- Extra Small Screens (under 480px) --- */
