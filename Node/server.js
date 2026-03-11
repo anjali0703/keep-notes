@@ -73,10 +73,10 @@ app.use("/api/reminder", reminderRoutes);
 
 // -------------------- 5. START CRON --------------------
 // Start reminder cron only after DB is connected
-mongoose.connection.once("open", () => {
-  console.log("Database connected. Starting reminder cron...");
-  reminderCron(); // call your cron function
-});
+// mongoose.connection.once("open", () => {
+//   console.log("Database connected. Starting reminder cron...");
+//   reminderCron(); // call your cron function
+// });
 
 // -------------------- 6. START SERVER --------------------
 app.listen(port, () => {
