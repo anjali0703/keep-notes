@@ -44,41 +44,42 @@ const dbURI =
     ? process.env.ATLAS_DB_URI
     : process.env.LOCAL_DB_URI;
 
+// Connect to MongoDB
 mongoose
   .connect(dbURI, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
     maxPoolSize: 100,
   })
-  .then(() =>
-    console.log(
-      `Mongoose connected successfully to ${
-        process.env.USE_ATLAS === "true" ? "MongoDB Atlas" : "Local MongoDB"
-      }`
-    )
-  )
-  .catch((err) => console.error("Mongoose connection error:", err));
+  .catch((err) => console.error("Initial MongoDB connection error:", err));
 
+// Log errors
 mongoose.connection.on("error", (err) => {
   console.error("MongoDB connection error:", err);
 });
 
-// -------------------- 4. ROUTES --------------------
-app.use("/api/auth", authRoutes);
-app.use("/api/users", userRoutes);
-app.use("/api/userTypes", userTypeRoutes);
-app.use("/api/notes", notesRoutes);
-app.use("/api/label", labelRoutes);
-app.use("/api/reminder", reminderRoutes);
+// Only start server logic after DB is connected
+mongoose.connection.once("open", () => {
+  console.log(
+    `Mongoose connected successfully to ${
+      process.env.USE_ATLAS === "true" ? "MongoDB Atlas" : "Local MongoDB"
+    }`
+  );
 
-// -------------------- 5. START CRON --------------------
-// Start reminder cron only after DB is connected
-// mongoose.connection.once("open", () => {
-//   console.log("Database connected. Starting reminder cron...");
-//   reminderCron(); // call your cron function
-// });
+  // -------------------- 4. ROUTES --------------------
+  app.use("/api/auth", authRoutes);
+  app.use("/api/users", userRoutes);
+  app.use("/api/userTypes", userTypeRoutes);
+  app.use("/api/notes", notesRoutes);
+  app.use("/api/label", labelRoutes);
+  app.use("/api/reminder", reminderRoutes);
 
-// -------------------- 6. START SERVER --------------------
-app.listen(port, () => {
-  console.log(`Server running on port ${port}`);
+  // -------------------- 5. START CRON --------------------
+  // console.log("Starting reminder cron...");
+  // reminderCron();
+
+  // -------------------- 6. START SERVER --------------------
+  app.listen(port, () => {
+    console.log(`Server running on port ${port}`);
+  });
 });
