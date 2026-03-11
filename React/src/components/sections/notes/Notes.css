@@ -673,6 +673,9 @@ body::-webkit-scrollbar {
         margin: 0 10px;
     }
 
+    .notes-scroll-area{
+      padding: 10px;
+    }
     .keep-logo-text {
         display: none; /* Hide 'Keep' text to save space */
     }
@@ -698,6 +701,30 @@ body::-webkit-scrollbar {
     .search-bar input::placeholder {
         color: transparent; /* Hide placeholder to save space */
     }
+    .edit-modal{
+      width:auto;
+      
+    }
+    .notes-container{
+      padding: 0;
+    }
+    .palette-popover {
+      top: 85px;/* fixed relative to viewport */
+         /* vertical center */
+    left: 110%;       /* horizontal center */
+    transform: translate(-50%, -50%); /* adjust for its own width/height */
+
+}
+.bg-circle{
+   width: 22px !important; 
+    height: 22px !important;
+     
+}
+.color-circle{
+  width: 22px !important; 
+    height: 22px !important;
+    
+}
 }
 
 /* Ensure the Note Input stays centered and scales */
@@ -771,7 +798,7 @@ body::-webkit-scrollbar {
 
 /* Card full width in list */
 .notes-list .note-card {
-  width: 50%;
+  width: 100%;
 
 }
 .notes-container{width: 100%;
@@ -1472,4 +1499,12 @@ body.dark .reminder-chip{
 }
 body.dark .card-toolbar svg:hover{
   color: #a6a6a6;
+}
+.placeholder {
+    display: inline-block;
+    min-height: 1em;
+    vertical-align: middle;
+    cursor: wait;
+    background-color: none !important;
+    opacity: .5;
 }

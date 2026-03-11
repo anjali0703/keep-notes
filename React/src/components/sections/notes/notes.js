@@ -1314,7 +1314,7 @@ const completedReminders = sortNotes(
   }}>
             {!expanded ? (
               <div className="note-input-closed" onClick={() => setExpanded(true)}>
-                <span className="placeholder">Take a note...</span>
+                <span className="">Take a note...</span>
                 <div className="input-icons">
                   <div className="icon-btn" onClick={(e) => { e.stopPropagation(); setExpanded(true); updateDraft({ isList: true, listItems: [{text: "", checked: false}] }); }}>
                     <FaRegCheckSquare />

@@ -22,13 +22,14 @@ import "./assets/css/style.css";
 
 
 
-// Ensure the target container exists in your HTML file
-const container = document.getElementById("mystic");
+
+
+// Ensure the root div exists
+const container = document.getElementById("root");
 if (!container) {
   throw new Error("Target container is not a DOM element.");
 }
 
-// Create a root and render
 const root = ReactDOM.createRoot(container);
 root.render(<App />);
 
