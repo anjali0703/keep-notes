@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { Dropdown, NavLink } from 'react-bootstrap';
-import { Line as LineChart } from 'react-chartjs-2';
+
  
 // crypto-rating-graph
 function cryptoratinggraph() {

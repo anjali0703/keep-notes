@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import { Line as LineChart } from 'react-chartjs-2';
+
 
 var trend_1 = [1, 3, 5, 4, 3, 3, 4, 8, 5];
 var trend_2 = [3, 2, 5, 4, 8, 4, 5, 2, 3];

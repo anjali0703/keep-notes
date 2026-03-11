@@ -1,5 +1,5 @@
 import React, { Component, Fragment } from 'react';
-import { Line as LineChart } from 'react-chartjs-2';
+
 
 // Bitcoin
 function Bitcoin() {

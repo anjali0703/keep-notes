@@ -1,5 +1,4 @@
-import React, { Component } from 'react';
-import { Scatter } from 'react-chartjs-2';
+
 
 const rand = () => Math.round(Math.random() * 20 - 10)
 // scatter-chart
